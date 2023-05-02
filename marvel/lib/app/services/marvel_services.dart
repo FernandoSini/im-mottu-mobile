@@ -10,8 +10,9 @@ class MarvelServices {
   final _timestamp = DateTime.now().millisecond.toString();
 
   Future<List<Character>> fetchCharacters() async {
-    final String _hash = md5.convert(utf8.encode(text)).toString() _timestamp + _privateKey + _apiKey;
-    
+    final String _hash =
+        md5.convert(utf8.encode(_timestamp + _privateKey + _apiKey)).toString();
+
     List<Character>? marvelHeroes = [];
     final url = String.fromEnvironment(
         "https://gateway.marvel.com:443/v1/public/characters?ts=${_timestamp}&apikey=${_apiKey}&hash=${_hash}",
@@ -26,7 +27,7 @@ class MarvelServices {
       if (marvelHeroes!.isEmpty || marvelHeroes == null) {
         return [];
       } else {
-        return marvelHeroes;
+        return marvelHeroes.toList();
       }
     } else {
       var responseDecoded = jsonDecode(response.body);

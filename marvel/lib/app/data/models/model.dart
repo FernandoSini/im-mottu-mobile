@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ResponseModel {
-  String? code;
+  int? code;
   String? status;
   String? copyright;
   String? attributionText;
@@ -19,7 +19,7 @@ class ResponseModel {
       this.etag});
 
   ResponseModel.fromJson(Map<String, dynamic> json) {
-    code = json['code'];
+    code = json["code"];
     status = json['status'];
     copyright = json['copyright'];
     attributionText = json['attributionText'];
@@ -30,24 +30,24 @@ class ResponseModel {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['code'] = this.code;
-    data['status'] = this.status;
-    data['copyright'] = this.copyright;
-    data['attributionText'] = this.attributionText;
-    data['attributionHTML'] = this.attributionHTML;
+    data['code'] = code;
+    data['status'] = status;
+    data['copyright'] = copyright;
+    data['attributionText'] = attributionText;
+    data['attributionHTML'] = attributionHTML;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
-    data['etag'] = this.etag;
+    data['etag'] = etag;
     return data;
   }
 }
 
 class Data {
-  String? offset;
-  String? limit;
-  String? total;
-  String? count;
+  int? offset;
+  int? limit;
+  int? total;
+  int? count;
   List<Character>? results;
 
   Data({this.offset, this.limit, this.total, this.count, this.results});
@@ -67,19 +67,19 @@ class Data {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['offset'] = this.offset;
-    data['limit'] = this.limit;
-    data['total'] = this.total;
-    data['count'] = this.count;
-    if (this.results != null) {
-      data['results'] = this.results!.map((v) => v.toJson()).toList();
+    data['offset'] = offset;
+    data['limit'] = limit;
+    data['total'] = total;
+    data['count'] = count;
+    if (results != null) {
+      data['results'] = results!.map((v) => v.toJson()).toList();
     }
     return data;
   }
 }
 
 class Character {
-  String? id;
+  int? id;
   String? name;
   String? description;
   String? modified;
@@ -131,28 +131,28 @@ class Character {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['id'] = this.id;
-    data['name'] = this.name;
-    data['description'] = this.description;
-    data['modified'] = this.modified;
-    data['resourceURI'] = this.resourceURI;
-    if (this.urls != null) {
-      data['urls'] = this.urls!.map((v) => v.toJson()).toList();
+    data['id'] = id;
+    data['name'] = name;
+    data['description'] = description;
+    data['modified'] = modified;
+    data['resourceURI'] = resourceURI;
+    if (urls != null) {
+      data['urls'] = urls!.map((v) => v.toJson()).toList();
     }
-    if (this.thumbnail != null) {
-      data['thumbnail'] = this.thumbnail!.toJson();
+    if (thumbnail != null) {
+      data['thumbnail'] = thumbnail!.toJson();
     }
-    if (this.comics != null) {
-      data['comics'] = this.comics!.toJson();
+    if (comics != null) {
+      data['comics'] = comics!.toJson();
     }
-    if (this.stories != null) {
-      data['stories'] = this.stories!.toJson();
+    if (stories != null) {
+      data['stories'] = stories!.toJson();
     }
-    if (this.events != null) {
-      data['events'] = this.events!.toJson();
+    if (events != null) {
+      data['events'] = events!.toJson();
     }
-    if (this.series != null) {
-      data['series'] = this.series!.toJson();
+    if (series != null) {
+      data['series'] = series!.toJson();
     }
     return data;
   }
@@ -171,8 +171,8 @@ class Urls {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    data['url'] = this.url;
+    data['type'] = type;
+    data['url'] = url;
     return data;
   }
 }
@@ -190,15 +190,15 @@ class Thumbnail {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['path'] = this.path;
-    data['extension'] = this.extension;
+    data['path'] = path;
+    data['extension'] = extension;
     return data;
   }
 }
 
 class Comics {
-  String? available;
-  String? returned;
+  int? available;
+  int? returned;
   String? collectionURI;
   List<Items>? items;
 
@@ -218,11 +218,11 @@ class Comics {
 
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['available'] = this.available;
-    data['returned'] = this.returned;
-    data['collectionURI'] = this.collectionURI;
-    if (this.items != null) {
-      data['items'] = this.items!.map((v) => v.toJson()).toList();
+    data['available'] = available;
+    data['returned'] = returned;
+    data['collectionURI'] = collectionURI;
+    if (items != null) {
+      data['items'] = items!.map((v) => v.toJson()).toList();
     }
     return data;
   }

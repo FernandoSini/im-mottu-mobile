@@ -15,8 +15,8 @@ class MarvelRepository {
     if (data != null) {
       var decodedData = jsonDecode(data);
       List<Character> characters =
-          decodedData.map((e) => Character.fromJson(e));
-      return characters??[];
+          decodedData.map<Character>((e) => Character.fromJson(e)).toList();
+      return characters;
     } else {
       return null;
     }
